@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="vstack gap-2 m-2" id="users_list_panel"></div>
+        </div>
+        <div class="col-9">
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="{% static 'js/main/main.js' %}"></script>
+<script src="{% static 'js/main/logic.js' %}"></script>
+<script src="{% static 'js/main/draw.js' %}"></script>
+
+<script>
+    const server = new WebServer(`{{ user.id }}`, `{{ user.name }}`)
+    server.connect();
+</script>
+
+{% endblock %}
